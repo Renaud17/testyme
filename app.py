@@ -164,12 +164,10 @@ def main():
   blog_Adresse = st.text_input("Enter Adresse",max_chars=50)
   blog_Téléphone = st.text_input("Enter Téléphone",max_chars=50)
   blog_Région = st.text_input("Enter Région",max_chars=50)
-  blog_Longitude = st.text_input("Enter Longitude",value=st.write(geocoder.ip('me').latlng[1]))
-  blog_Latitude = st.text_input("Enter Latitude",value=st.write(geocoder.ip('me').latlng[0]))
   
- 
+
   if st.button("Add"):
-      add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,blog_Longitude,blog_Latitude)
+      add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,geocoder.ip('me').latlng[1],geocoder.ip('me').latlng[0])
       st.success("Post::'{}' Saved".format(blog_RC))
     
 
