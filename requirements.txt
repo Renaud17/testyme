@@ -1,0 +1,8 @@
+pandas==1.1.5
+folium==0.8.3
+opencv_python==4.1.2.30
+matplotlib==3.2.2
+geocoder==1.38.1
+flickrapi==2.4.0
+python-dotenv==0.17.1
+seleniumbase==1.63.2
