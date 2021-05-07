@@ -164,8 +164,8 @@ def main():
   blog_Adresse = st.text_input("Enter Adresse",max_chars=50)
   blog_Téléphone = st.text_input("Enter Téléphone",max_chars=50)
   blog_Région = st.text_input("Enter Région",max_chars=50)
-  blog_Longitude = st.text_input("Longitude",value=geocoder.ip('me').latlng[1])
-  blog_Latitude = st.text_input("Latitude",value=geocoder.ip('me').latlng[0])
+  blog_Longitude = geocoder.ip('me').latlng[1]
+  blog_Latitude = geocoder.ip('me').latlng[0]
   
  
   if st.button("Add"):
