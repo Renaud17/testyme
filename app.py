@@ -167,7 +167,7 @@ def main():
 
  
   if st.button("Add"):
-      add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,blog_Longitude=geocoder.ip('me').latlng[1],blog_Latitude=geocoder.ip('me').latlng[0])
+      add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,blog_Longitude = geocoder.ip('me').latlng[1],blog_Latitude = geocoder.ip('me').latlng[0])
       st.success("Post::'{}' Saved".format(blog_RC))
     
 
