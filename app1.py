@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import geocoder
 
 # DB Management
 import sqlite3 
@@ -82,8 +83,7 @@ def main():
 					blog_Téléphone = st.text_input("Enter Téléphone",max_chars=50)
 					blog_Région = st.text_input("Enter Région",max_chars=50)
 					if st.button("Add"):
-						import geocoder
-					        myloc = geocoder.ip('me')
+						myloc = geocoder.ip('me')
 					        my=myloc.latlng
 					        blog_Longitude= my[1]
 					        blog_Latitude = my[0]
