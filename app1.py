@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import geocoder
 
 # DB Management
 import sqlite3 
@@ -72,8 +71,8 @@ def main():
 				st.success("Logged In as {}".format(username))
 
 				task = st.selectbox("Task",["Add Post","Analytics","Profiles"])
-				if task == "Enregistrer mom entreprise":
-					st.subheader("Add Your Article")
+				if task == "Add Post":
+					st.subheader("Add Your Post")
 
 				elif task == "Analytics":
 					st.subheader("Analytics")
