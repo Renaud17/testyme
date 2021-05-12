@@ -211,7 +211,7 @@ def main():
 				st.success("Logged In as {}".format(username))
 
 				task = st.selectbox("Task",["Enregistrement","Entreprises","Profiles"])
-				if task == "Add Post":
+				if task == "Enregistrement":
 					st.subheader("Votre enregistrement")
 					create_table()
 					blog_RC = st.text_input('Enter Notes RC')
