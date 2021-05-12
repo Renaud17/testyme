@@ -210,9 +210,9 @@ def main():
 
 				st.success("Logged In as {}".format(username))
 
-				task = st.selectbox("Task",["Add Post","Analytics","Profiles"])
+				task = st.selectbox("Task",["Enregistrement","Entreprises","Profiles"])
 				if task == "Add Post":
-					st.subheader("Add Your Post")
+					st.subheader("Votre enregistrement")
 					create_table()
 					blog_RC = st.text_input('Enter Notes RC')
 					blog_Société = st.text_input("Enter Société",max_chars=50)
@@ -229,10 +229,9 @@ def main():
 					    add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,blog_Latitude,blog_Longitude)
 					    st.success("Post::'{}' Saved".format(blog_RC))
 					
-                  
-
-				elif task == "Analytics":
-					st.subheader("Analytics")
+                 
+				elif task == "Entreprises":
+					st.subheader("Profile entreprises")
 				elif task == "Profiles":
 					st.subheader("User Profiles")
 					user_result = view_all_users()
