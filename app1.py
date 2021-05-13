@@ -10,11 +10,11 @@ conn = sqlite3.connect('data.db')
 c = conn.cursor()
 
 def create_table():
-    c.execute('CREATE TABLE IF NOT EXISTS dealtable(RC TEXT,Société TEXT,Secteur TEXT,Activités TEXT,Adresse TEXT,Téléphone TEXT,Région TEXT,Latitude TEXT,Longitude TEXT)')
+    c.execute('CREATE TABLE IF NOT EXISTS dealtable(RC TEXT,Société TEXT,Secteur TEXT,Activités TEXT,Adresse TEXT,Téléphone TEXT,Région TEXT,Image varbinary(max),Latitude TEXT,Longitude TEXT)')
 
 
 def add_data(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Longitude,Latitude):
-    c.execute('INSERT INTO dealtable(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Latitude,Longitude) VALUES (?,?,?,?,?,?,?,?,?)',(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Longitude,Latitude))
+    c.execute('INSERT INTO dealtable(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Image,Latitude,Longitude) VALUES (?,?,?,?,?,?,?,?,?,?)',(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Image,Longitude,Latitude))
     conn.commit()
 
 
@@ -81,8 +81,8 @@ def get_blog_by_Reg(Région):
     data = c.fetchall()
     return data
 
-def get_image(image):
-    c.execute('SELECT * FROM dealtable WHERE  image="{}"'.format( image))
+def get_image(Image):
+    c.execute('SELECT * FROM dealtable WHERE  image="{}"'.format( Image))
     data = c.fetchall()
     return data
 
@@ -140,8 +140,8 @@ def edit_blog_Reg(Région,new_Région):
     data = c.fetchall()
     return data
 
-def edit_image(image,new_image):
-    c.execute('UPDATE dealtable SET image ="{}" WHERE image="{}"'.format(image,new_image))
+def edit_image(Image,new_Image):
+    c.execute('UPDATE dealtable SET image ="{}" WHERE image="{}"'.format(Image,new_Image))
     conn.commit()
     data = c.fetchall()
     return data
