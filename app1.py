@@ -6,11 +6,11 @@ import fxc
 
 st.beta_container()
 st.beta_columns(spec)
-    col1, col2 = st.beta_columns(2)
-    col1.subheader('Columnisation')
+col1, col2 = st.beta_columns(2)
+col1.subheader('Columnisation')
 st.beta_expander('Expander')
-    with st.beta_expander('Expand'):
-        st.write('Juicy deets')
+with st.beta_expander('Expand'):
+	st.write('Juicy deets')
 
 def main():
 	"""Simple Login App"""
