@@ -10,7 +10,7 @@ conn = sqlite3.connect('data.db')
 c = conn.cursor()
 
 def create_table():
-    c.execute('CREATE TABLE IF NOT EXISTS dealtable(RC TEXT,Société TEXT,Secteur TEXT,Activités TEXT,Adresse TEXT,Téléphone TEXT,Région TEXT,Image LONGBLOB,Latitude TEXT,Longitude TEXT)')
+    c.execute('CREATE TABLE IF NOT EXISTS dealtable(RC TEXT,Société TEXT,Secteur TEXT,Activités TEXT,Adresse TEXT,Téléphone TEXT,Région TEXT,Image BLOB,Latitude TEXT,Longitude TEXT)')
 
 
 def add_data(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Image,Longitude,Latitude):
