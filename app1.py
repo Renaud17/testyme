@@ -139,6 +139,12 @@ def edit_blog_Reg(Région,new_Région):
     data = c.fetchall()
     return data
 
+def edit_image(image,new_image):
+    c.execute('UPDATE dealtable SET image ="{}" WHERE image="{}"'.format(image,new_image))
+    conn.commit()
+    data = c.fetchall()
+    return data
+
 def edit_blog_long(Longitude,new_Longitude):
     c.execute('UPDATE dealtable SET RC ="{}" WHERE RC="{}"'.format(Longitude,new_Longitude))
     conn.commit()
@@ -151,12 +157,6 @@ def edit_blog_lat(Latitude,new_Latitude):
     data = c.fetchall()
     return data
 
-
-def edit_image(image,new_image):
-    c.execute('UPDATE dealtable SET image ="{}" WHERE image="{}"'.format(image,new_image))
-    conn.commit()
-    data = c.fetchall()
-    return data
 
 def delete_data(RC):
     c.execute('DELETE FROM blogtable WHERE RC="{}"'.format(RC))
@@ -230,12 +230,13 @@ def main():
 				blog_Adresse = st.text_input("Enter Adresse",max_chars=50)
 				blog_Téléphone = st.text_input("Enter Téléphone",max_chars=50)
 				blog_Région = st.text_input("Enter Région",max_chars=50)
+				image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
 				if st.button("Add"):
 				    import requests
 				    response = requests.get("http://ip-api.com/json/").json()
 				    blog_Longitude= response['lon']
 				    blog_Latitude = response['lat']
-				    add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,blog_Latitude,blog_Longitude)
+				    add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,blog_Latitude,blog_Longitude,image_file)
 				    st.success("Post::'{}' Saved".format(blog_RC))
 				
 			else:
