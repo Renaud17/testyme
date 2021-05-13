@@ -1,7 +1,8 @@
+import fxc
 import streamlit as st
 import pandas as pd 
 import geocoder
-import fxc
+
 
 
 def main():
