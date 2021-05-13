@@ -1,6 +1,3 @@
-
-
-
 conn = sqlite3.connect('data.db')
 c = conn.cursor()
 
