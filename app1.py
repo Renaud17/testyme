@@ -10,7 +10,7 @@ conn = sqlite3.connect('data.db')
 c = conn.cursor()
 
 def create_table():
-    c.execute('CREATE TABLE IF NOT EXISTS dealtable(RC TEXT,Société TEXT,Secteur TEXT,Activités TEXT,Adresse TEXT,Téléphone TEXT,Région TEXT,Image BLOB,Latitude TEXT,Longitude TEXT)')
+    c.execute('CREATE TABLE IF NOT EXISTS dealtable(RC TEXT,Société TEXT,Secteur TEXT,Activités TEXT,Adresse TEXT,Téléphone TEXT,Région TEXT,Image LONGBLOB,Latitude TEXT,Longitude TEXT)')
 
 
 def add_data(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Longitude,Latitude):
@@ -81,7 +81,7 @@ def get_blog_by_Reg(Région):
     data = c.fetchall()
     return data
 
-def get_image(Image):
+def get_blog_image(Image):
     c.execute('SELECT * FROM dealtable WHERE  Image="{}"'.format( Image))
     data = c.fetchall()
     return data
@@ -140,8 +140,8 @@ def edit_blog_Reg(Région,new_Région):
     data = c.fetchall()
     return data
 
-def edit_image(Image,new_Image):
-    c.execute('UPDATE dealtable SET image ="{}" WHERE image="{}"'.format(Image,new_Image))
+def edit_blog_image(Image,new_Image):
+    c.execute('UPDATE dealtable SET RC ="{}" WHERE RC="{}"'.format(Image,new_Image))
     conn.commit()
     data = c.fetchall()
     return data
@@ -231,13 +231,13 @@ def main():
 				blog_Adresse = st.text_input("Enter Adresse",max_chars=50)
 				blog_Téléphone = st.text_input("Enter Téléphone",max_chars=50)
 				blog_Région = st.text_input("Enter Région",max_chars=50)
-				image_file = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
+				blog_image = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
 				if st.button("Add"):
 				    import requests
 				    response = requests.get("http://ip-api.com/json/").json()
 				    blog_Longitude= response['lon']
 				    blog_Latitude = response['lat']
-				    add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,image_file,blog_Latitude,blog_Longitude)
+				    add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,blog_image,blog_Latitude,blog_Longitude)
 				    st.success("Post::'{}' Saved".format(blog_RC))
 				
 			else:
