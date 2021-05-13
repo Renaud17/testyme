@@ -1,5 +1,5 @@
 import sqlite3
-import fcx
+import fxc
 import streamlit as st
 import pandas as pd 
 import geocoder
