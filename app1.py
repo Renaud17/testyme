@@ -82,7 +82,7 @@ def get_blog_by_Reg(Région):
     return data
 
 def get_image(Image):
-    c.execute('SELECT * FROM dealtable WHERE  image="{}"'.format( Image))
+    c.execute('SELECT * FROM dealtable WHERE  Image="{}"'.format( Image))
     data = c.fetchall()
     return data
 
