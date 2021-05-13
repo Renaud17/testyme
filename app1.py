@@ -8,9 +8,8 @@ def main():
 	"""Simple Login App"""
 
 	st.title("Simple Login App")
-
-        menulog = ["Home","Login","SignUp"]
-	choice = st.selectbox(menu)
+	menulog = ("Home","Login","SignUp")
+	choice = st.selectbox(menulog)
         st.write(choice)
 
 	if choice == "Home":
