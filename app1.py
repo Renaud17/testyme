@@ -3,6 +3,11 @@ import streamlit as st
 import pandas as pd 
 import geocoder
 
+import sqlite3
+
+conn = sqlite3.connect('data.db')
+c = conn.cursor()
+
 def create_table():
     c.execute('CREATE TABLE IF NOT EXISTS dealtable(RC TEXT,Société TEXT,Secteur TEXT,Activités TEXT,Adresse TEXT,Téléphone TEXT,Région TEXT,Latitude TEXT,Longitude TEXT)')
 
