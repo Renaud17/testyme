@@ -81,6 +81,10 @@ def get_blog_by_Reg(Région):
     data = c.fetchall()
     return data
 
+def get_image(image):
+    c.execute('SELECT * FROM dealtable WHERE  image="{}"'.format( image))
+    data = c.fetchall()
+    return data
 
 def get_blog_by_lat(Latitude):
     c.execute('SELECT * FROM dealtable WHERE  Latitude="{}"'.format( Latitude))
@@ -92,10 +96,7 @@ def get_blog_by_long(Longitude):
     data = c.fetchall()
     return data
 
-def get_image(image):
-    c.execute('SELECT * FROM dealtable WHERE  image="{}"'.format( image))
-    data = c.fetchall()
-    return data
+
 
 def edit_blog_RC(RC,new_RC):
     c.execute('UPDATE dealtable SET RC ="{}" WHERE RC="{}"'.format(RC,new_RC))
@@ -236,7 +237,7 @@ def main():
 				    response = requests.get("http://ip-api.com/json/").json()
 				    blog_Longitude= response['lon']
 				    blog_Latitude = response['lat']
-				    add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,blog_Latitude,blog_Longitude,image_file)
+				    add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,image_file,blog_Latitude,blog_Longitude)
 				    st.success("Post::'{}' Saved".format(blog_RC))
 				
 			else:
