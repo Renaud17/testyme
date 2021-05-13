@@ -229,15 +229,12 @@ def main():
 				blog_Adresse = st.text_input("Enter Adresse",max_chars=50)
 				blog_Téléphone = st.text_input("Enter Téléphone",max_chars=50)
 				blog_Région = st.text_input("Enter Région",max_chars=50)
-				blog_image = st.file_uploader("Upload Image",type=['png','jpeg','jpg'])
-				file = open(blog_image,'rb').read()
-				file = base64.b64encode(file)
 				if st.button("Add"):
 				    import requests
 				    response = requests.get("http://ip-api.com/json/").json()
 				    blog_Longitude= response['lon']
 				    blog_Latitude = response['lat']
-				    add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,file,blog_Latitude,blog_Longitude)
+				    add_data(blog_RC,blog_Société,blog_Secteur,blog_Activités,blog_Adresse,blog_Téléphone,blog_Région,blog_Latitude,blog_Longitude)
 				    st.success("Post::'{}' Saved".format(blog_RC))
 				
 			else:
