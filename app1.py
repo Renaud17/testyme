@@ -1,13 +1,9 @@
-import fxc
+
+import sqlite3
+from fxc import app
 import streamlit as st
 import pandas as pd 
 import geocoder
-
-import sqlite3
-
-conn = sqlite3.connect('data.db')
-c = conn.cursor()
-
 
 
 def main():
