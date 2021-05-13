@@ -5,13 +5,16 @@ import fxc
 
 
 def main():
+	option = st.selectbox('How would you like to be contacted?',('Email', 'Home phone', 'Mobile phone'))
+	st.write('You selected:', option)
+	
 	"""Simple Login App"""
-
+        """
 	st.title("Simple Login App")
 	menulog = ("Home","Login","SignUp")
 	choice = st.selectbox(menulog)
         st.write(choice)
-
+        """
 	if choice == "Home":
 		st.subheader("Home")
 
