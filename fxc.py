@@ -5,13 +5,17 @@ c = conn.cursor()
 
 def create_table():
     c.execute('CREATE TABLE IF NOT EXISTS dealtable(RC TEXT,Société TEXT,Secteur TEXT,Activités TEXT,Adresse TEXT,Téléphone TEXT,Région TEXT,Latitude TEXT,Longitude TEXT)')
-
+    
+def create_usertable():
+    c.execute('CREATE TABLE IF NOT EXISTS userstable(username TEXT,password TEXT)')
 
 def add_data(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Longitude,Latitude):
     c.execute('INSERT INTO dealtable(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Latitude,Longitude) VALUES (?,?,?,?,?,?,?,?,?)',(RC,Société,Secteur,Activités,Adresse,Téléphone,Région,Longitude,Latitude))
     conn.commit()
 
-
+def add_userdata(username,password):
+    c.execute('INSERT INTO userstable(username,password) VALUES (?,?)',(username,password))
+    conn.commit()
 
 
 def view_all_notes():
@@ -169,13 +173,6 @@ def check_hashes(password,hashed_text):
     return False
 
 
-def create_usertable():
-    c.execute('CREATE TABLE IF NOT EXISTS userstable(username TEXT,password TEXT)')
-
-
-def add_userdata(username,password):
-    c.execute('INSERT INTO userstable(username,password) VALUES (?,?)',(username,password))
-    conn.commit()
 
 def login_user(username,password):
     c.execute('SELECT * FROM userstable WHERE username =? AND password = ?',(username,password))
