@@ -5,12 +5,12 @@ import fxc
 
 
 def main():
-	
 	"""Simple Login App"""
 	col1,col2 = st.beta_columns(2)
-        with col2:
+	with col2:
 		menu = ["Home","Login","SignUp"]
 		choice = st.sidebar.selectbox("Menu",menu)
+	
         
 	if choice == "Home":
 		st.subheader("Home")
