@@ -9,8 +9,9 @@ def main():
 
 	st.title("Simple Login App")
 
-	menu = ["Home","Login","SignUp"]
-	choice = st.sidebar.selectbox("Menu",menu)
+        menulog = ["Home","Login","SignUp"]
+	choice = st.selectbox(menu)
+        st.write(choice)
 
 	if choice == "Home":
 		st.subheader("Home")
