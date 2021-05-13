@@ -5,10 +5,11 @@ import fxc
 
 
 def main():
-	menu = st.selectbox('How would you like to be contacted?',('Home', 'Login', 'SignUp'))
-	st.write('You selected:', menu)
 	
 	"""Simple Login App"""
+	
+	menu = ["Home","Login","SignUp"]
+	choice = st.sidebar.selectbox("Menu",menu)
         
 	if choice == "Home":
 		st.subheader("Home")
